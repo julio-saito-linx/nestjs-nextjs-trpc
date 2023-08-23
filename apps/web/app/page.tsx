@@ -2,10 +2,13 @@ import Clientside from "./Clientside";
 import { trpc } from "./trpc";
 
 export default async function Home() {
-  const response = await trpc.hello.query({});
+  const response = await trpc.hello.query({
+    name: "Julio",
+    age: 42,
+  });
   return (
     <div>
-      <p>Server side - {response}</p>
+      <p>Server: {response}</p>
       <Clientside />
     </div>
   );
